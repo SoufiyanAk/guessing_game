@@ -1,20 +1,25 @@
-function rinit {
-	echo "Please enter the number of files in the current directory:"
-	read inp
-    files=$(ls -1 | wc -l)
-}
-rinit
+#!/bin/bash
+echo "Enter the number of the files:"
+#input
+read myinput
+#count line
+nbfiles=$(ls -lrt | wc -l)
 
-while [[ $inp -ne $files ]]
+function runit {
+#runit function to start the loop
+while [[ $myinput -ne $nbfiles ]]
+
 do
-	if [[ $inp -lt $files ]] 
+	if [[ $myinput -gt $nbfiles ]] #check the input if it's greater than the number of the file number
 	then
-		echo "Too low."
+		echo "The guess was too high."
 	else
-		echo "Too high."
+		echo "The guess was too low."
 	fi
-	ask
 done
+}
+
+runit
 
 echo "Listed file : "
 echo ls -lrt 
