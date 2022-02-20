@@ -16,6 +16,7 @@ do
 	else
 		echo "The guess was too low."
 	fi
+	break
 done
 }
 
